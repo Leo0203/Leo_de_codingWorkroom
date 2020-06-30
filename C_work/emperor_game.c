@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>             //支持字符串操作
+#include <string.h>             //to edit string
 
 int main()
 {
 
-    char emperor_name[50];      //皇帝名称
-    int choose = 0;             //皇帝的选择1-4之间
-    int count = 4;              //拥有妃子个数
-    int search = -1;             //存放查找到元素下标
+    char emperor_name[50];      //name of emperor
+    int choose = 0;             //choose of emperor
+    int count = 4;              //number of the concubine
+    int search = -1;            //存放查找到元素下标
     const MAX = 6;              //常量max表示最大妃子数量
     char temp_name[10];         //存放临时字符串字符数组
     char names[MAX][20] = {"貂蝉", "西施", "杨玉环", "甄嬛", "郭德纲"};

@@ -8,7 +8,7 @@ char unit[10][4] = {"零","壹","贰","叁","肆","伍","陆","柒","捌","玖"}
 
 int main()
 {
-    printf("请输入金额： ");
+    printf("Please enter a number of money： ");
     scanf("%d", &money);
     while (money != 0)
     {
@@ -17,7 +17,7 @@ int main()
         i++;
         count++;
     }
-    printf("您输入了%d位数字。\n", count);
+    printf("You entered %d numbers.\n", count);
     for (int i = count - 1; i > -1; i--)
     {
         printf("%d - %s \n", moneys[i], unit[moneys[i]]);

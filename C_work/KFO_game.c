@@ -4,7 +4,7 @@
 
 int main()
 {
-    //随机函数
+    //random function
     srand(time(NULL));
     int hp1 = 100, hp2 = 100;
     while (hp1 >= 0 && hp2 >= 0)
