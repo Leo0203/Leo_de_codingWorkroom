@@ -9,7 +9,7 @@ int main()
     int hp1 = 100, hp2 = 100;
     while (hp1 >= 0 && hp2 >= 0)
     {
-        int att1 = rand() % 11 + 5;
+        int att1 = rand() % 11 + 5; // to get a number between a and b use: rand() % (b - a + 1) + a
         if(att1 == 15)
         {
             att1 *= 2;
@@ -29,6 +29,7 @@ int main()
         printf("Player 1 attack: %d, player 2 left health: %d \n", att1, hp2);
         printf("Player 2 attack: %d, player 1 left health: %d \n", att2, hp1);
         printf("*********************************************\n");
+
     }
     printf("KO! player 1 health: %d, player 2 health: %d. \n", hp1, hp2);
 }
