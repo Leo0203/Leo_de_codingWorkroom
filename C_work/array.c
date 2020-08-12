@@ -64,3 +64,79 @@ int main_2 ()
     }
 
 }
+
+/******************************************************************************************************************************************
+to delete an element, find the element and replace each index after to the previous one. Remember to subtract the length of the array
+to insert an element, just insert it at the end, and remember to add the length of the array
+******************************************************************************************************************************************/
+
+int main_3()
+{
+    int count = 5; // # of element
+    int arr[] = {16, 25, 9, 90, 23};
+    int deleted_element;
+    int deleted_index = -1; // giving an non-existed index, make comparison easier.
+    int insert;
+    int i = 0;
+   
+   // to delete
+   
+    printf("the element you want to deleted is: ");
+    scanf("%d", &deleted_element);
+    for (i = 0; i < count; i++)
+    {
+        if (deleted_element == arr[i])
+        {
+            deleted_index = i;
+            break;
+        }
+    }
+    if (deleted_index == -1)
+    {
+        printf("there is no such number.");
+    }
+    else
+    {
+        for (i = deleted_index; i < count - 1; i++)
+        {
+            arr[i] = arr[i + 1];
+        }
+        count--;
+    }
+    for (i = 0; i < count; i++)
+    {
+        printf("%d", arr[i]);
+    }
+
+    // to insert
+
+    printf("enter what you want to insert: ");
+    scanf("%d", &insert);
+    arr[count] = insert;
+    count++;
+    for (i = 0; i < count; i++)
+    {
+        printf("%d", arr[i]);
+    }
+}
+
+// print 2 demention array
+
+int main_4()
+{
+    int i = 0, j = 0;
+    int arr[4][3] = {
+        {23, 24, 25},
+        {26, 27, 28},
+        {29, 30, 31},
+        {32, 33, 34}
+    };
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("%d", arr[i][j]);   //printf("%-d"); "-"means all to the left
+        }
+        
+    }
+}
