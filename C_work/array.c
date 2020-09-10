@@ -140,3 +140,57 @@ int main_4()
         
     }
 }
+
+int main_4()
+{
+    // to reverse an array
+    int arr[] = {12, 13, 14, 15, 16};
+    int temp = 0;
+    int i = 0;
+    int * ptr1 = arr; // to the first address
+    int * ptr2 = arr + 4;
+    while (ptr1 != ptr2)
+    {
+        temp = * ptr1;
+        * ptr1 = * ptr2;
+        * ptr2 = temp;
+    }
+    /*
+    for (i = 0; i < 5/2; i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[5 - i - 1];
+        arr[5 - i - 1] = temp;
+    }
+    */
+
+    return 0;
+}
+
+// print 2d array using pointer
+
+int main_5()
+{
+    int i = 0;
+    int j = 0;
+    double arr[5][3] = 
+    {
+        {11, 12, 13},
+        {14, 15, 16},
+        {17, 18, 19},
+        {20, 21, 22},
+        {23, 24, 25}
+    };
+    //double (* ptr_arr)[3] = arr;
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("%.2lf\t", arr[i][j]);
+            //printf("%.2lf\t", * (arr[i] + j));
+            //printf("%.2lf\t", * (* (ptr_arr + i) + j));
+        }
+        printf("\n");
+    }
+    return 0;
+}
