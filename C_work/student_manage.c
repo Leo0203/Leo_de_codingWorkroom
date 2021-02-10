@@ -20,7 +20,7 @@ int main()
 
     return 0;
 }
-int find(double*scores, int findmun)
+int find(double*scores, int findnum)
 {
     int findindex = -1;
     int i = 0;
@@ -40,7 +40,7 @@ void input(double scores[])
     int i = 0;
     for (i = 0; i < N; i++)
     {
-        printf("please enter the score for the %d class: " i + 1);
+        printf("please enter the score for the %d class: " ,i + 1);
         scanf("%lf", &scores[i]);
         //scanf("%lf", (scores + I));
     }

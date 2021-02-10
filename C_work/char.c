@@ -32,19 +32,19 @@ int main()
     len = myStrlen(words);
     printf("lenth of the char: %d\n", len);
     int myStrlen(char str[])
-    {
-        int count = 0; //lenth of the char
-        while (str[count] != "\0")
         {
-            if (str[count] == "\n")
+            int count = 0; //lenth of the char
+            while (str[count] != "\0")
             {
-                str[count] = '\0';
-                break;
+                if (str[count] == "\n")
+                {
+                    str[count] = '\0';
+                    break;
+                }
+                count ++;
             }
-            count ++;
-        }
-        return count;
-    }
+            return count;
+        };
 
     return 0;
 }
