@@ -5,6 +5,7 @@ int factorial(int num);
 int main()
 {
     int result = factorial(5);
+    printf("the number is %d", result);
 }
 
 int factorial(int num)
