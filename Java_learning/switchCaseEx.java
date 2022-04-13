@@ -2,7 +2,7 @@ package Java_learning;
 
 import java.util.Scanner;
 
-public class switchCasedemo {
+public class switchCaseEx {
     static void main(String args[])
     {
         Scanner input = new Scanner(System.in);

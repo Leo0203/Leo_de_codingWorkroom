@@ -1,6 +1,6 @@
 package Java_learning;
 
-public class vardemo 
+public class VariableEx 
 {
     public static void main(String args[])
     {

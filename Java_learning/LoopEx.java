@@ -2,7 +2,7 @@ package Java_learning;
 
 import java.util.Scanner;
 
-public class loopdemos 
+public class LoopEx 
 {
     public static void main(String args[])
     {

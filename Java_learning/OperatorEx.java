@@ -2,8 +2,11 @@ package Java_learning;
 
 import java.util.Scanner;
 
-public class operatordemo {
+public class OperatorEx {
     
+    /*
+    this program can covert a certain amount of money to some changes
+    */
     public static void main(String args[])
     {
         Scanner input = new Scanner(System.in);
@@ -22,15 +25,15 @@ public class operatordemo {
         int numOf05cent   = cent % 10 / 5;
         int numOf01cent   = (cent % 10 - 5*numOf05cent);
         System.out.println("You can get"+ numOf50dollar + "$50");
-        System.out.println("And "+ numOf10dollar + "$10");
-        System.out.println("And "+numOf05dollar + "$5");
-        System.out.println("And "+numOf02dollar + "$2");
-        System.out.println("And "+numOf01dollar + "$1");
-        System.out.println("And "+numOf50cent + "¢50");
-        System.out.println("And "+numOf25cent + "¢25");
-        System.out.println("And "+numOf10cent + "¢10");
-        System.out.println("And "+numOf05cent + "¢5");
-        System.out.println("And "+numOf01cent + "¢1");
+        System.out.println("And "+ numOf10dollar + " $10");
+        System.out.println("And "+numOf05dollar + " $5");
+        System.out.println("And "+numOf02dollar + " $2");
+        System.out.println("And "+numOf01dollar + " $1");
+        System.out.println("And "+numOf50cent + " ¢50");
+        System.out.println("And "+numOf25cent + " ¢25");
+        System.out.println("And "+numOf10cent + " ¢10");
+        System.out.println("And "+numOf05cent + " ¢5");
+        System.out.println("And "+numOf01cent + " ¢1");
 
         
     }
