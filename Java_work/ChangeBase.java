@@ -2,9 +2,15 @@ package Java_work;
 
 /*
     input: a base 10 number
-    output: a base 16, base 2, base 32 number
+    output: a base 2, 8, 16, 32 number
     input output can also swap
 */
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 import java. util. Scanner;
 
@@ -15,7 +21,7 @@ public class ChangeBase {
         System.out.print("Please enter a base 10 number: ");
         int Base10Num = userIn.nextInt();
         System.out.println(Base10toBase16(Base10Num));
-        System.out.println(Base16toBase10(Base10toBase16(Base10Num)));
+        
 
 
 
