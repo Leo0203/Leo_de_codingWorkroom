@@ -90,7 +90,10 @@ public class calendar {
         return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
     }
 
-
+    /**
+     * find the number of days in the last month
+     * @return
+     */
     private static int DayInMonthNum(){
         
         int sum = 0;
