@@ -24,7 +24,7 @@ public class ObjectEx {
 
     public void setRadius(double radius){
 
-        if(radius <= 0){
+        if(radius <= 0){    //benefit of encapsulation: to have default value and easy to make changes -> avoid errors
             radius = 0;
         }
         this.radius = radius;
@@ -53,5 +53,9 @@ public class ObjectEx {
         System.out.println("The circumference of the circle is: " + this.getCircumference());
     }
         
+
+    /*
+        public, private, protected, default
+    */
     }
 
