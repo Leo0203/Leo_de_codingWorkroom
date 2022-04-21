@@ -1,5 +1,6 @@
 package Java_learning;
 
+import java.time.chrono.ThaiBuddhistChronology;
 import java.util.Scanner;
 
 public class ObjectEx {
@@ -10,47 +11,47 @@ public class ObjectEx {
     print out the results
     */
     /** radius of the circle */
-    public double radius; 
+    private double radius; 
     /** circumference of the circle */
-    public double circumference;
+    private double circumference;
     /** area of the circle */
-    public double area;
+    private double area;
+
+
+    public double getRadius(){
+        return radius;
+    }
+
+    public void setRadius(double radius){
+
+        if(radius <= 0){
+            radius = 0;
+        }
+        this.radius = radius;
+    }
+    
+    public double getCircumference() {
+        circumference = 2* Math.PI * radius;
+        return circumference;
+    }
+
+    public double getArea() {
+        area = Math.pow(radius , 2) * Math.PI;
+        return area;
+    }
+
+    public ObjectEx(double radius) {
+        this.setRadius(radius);
+    }
 
     public ObjectEx(){
-        userInRadius();
+
     }
-    public ObjectEx(double radiusIn){
-        if (radius > 0){
-            radius = radiusIn;
-        }else{
-            userInRadius();
-        }
+    
+    public void show(){
+        System.out.println("The area of the circle is: " + this.getArea());
+        System.out.println("The circumference of the circle is: " + this.getCircumference());
     }
-    private void userInRadius(){
-        Scanner userIn = new Scanner(System.in);
-        System.out.print("Please enter the radius of the circle: ");
-        radius = userIn.nextDouble();
-        userIn.close();
         
     }
 
-    public void outputCircumference(){
-        if(radius == 0){
-            System.out.println("Current radius is zero.");
-            userInRadius();
-
-        }
-        circumference = 2* Math.PI * radius;
-        System.out.println("The circumference of the circle is: " + circumference);
-    }
-
-    public void outputArea(){
-        if(radius == 0){
-            System.out.println("Current radius is zero.");
-            userInRadius();
-
-        }
-        area = Math.pow(radius , 2) * Math.PI;
-        System.out.println("The area of the circle is: " + area);
-    }
-}

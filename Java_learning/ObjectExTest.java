@@ -1,11 +1,19 @@
 package Java_learning;
 
+import java.util.Scanner;
+
 public class ObjectExTest {
 
     public static void main(String[] args){
-        ObjectEx circle = new ObjectEx();
+
+        Scanner userIn = new Scanner(System.in);
         
-        circle.outputArea();
-        circle.outputCircumference();
+        System.out.print("Please enter a radius of the circle: ");
+        double radius = userIn.nextInt();
+        ObjectEx circle = new ObjectEx(radius);
+
+        circle.show();
+        
     }    
 }
+
