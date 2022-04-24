@@ -41,7 +41,7 @@ public class gameSetting {
         showMenu();
         chooseRole();
         //place fists -> judge -> result
-        System.out.print(humanPlayer.getName() + "Please place your fist: ");
+        System.out.print(humanPlayer.getName() + " Please place your fist: ");
         humanPlayer.setFist(new Scanner(System.in).nextInt());
         int fist1 = humanPlayer.getFist();
         comPlayer.getFist();
