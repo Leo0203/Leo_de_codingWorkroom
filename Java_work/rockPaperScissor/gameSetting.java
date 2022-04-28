@@ -4,14 +4,12 @@ import java.util.Scanner;
 
 public class gameSetting {
 
-    //element: score record, players, room id, room name, room passwords
+    //element: score record, players
     //method: begin the game, initialize the game, show menu, show players, judge winner
 
     private characters humanPlayer = null;
     private robot comPlayer = null;
-    private String roomName;
-    private String roomPass;
-    private long roomID;
+    
 
     public gameSetting(){
         initGame();
@@ -40,17 +38,37 @@ public class gameSetting {
     public void startGame(){
         showMenu();
         chooseRole();
-        //place fists -> judge -> result
-        System.out.print(humanPlayer.getName() + " Please place your fist: ");
-        humanPlayer.setFist(new Scanner(System.in).nextInt());
-        int fist1 = humanPlayer.getFist();
-        comPlayer.getFist();
-        int fist2 = comPlayer.getFist();
-
-        int result = judge(fist1, fist2);
-        //return -1, human win; return 0, draw; return 1 computer win
+        During_the_Game();
         
 
+    }
+
+    private void During_the_Game() {
+        while(true){
+            //place fists -> judge -> result
+            System.out.print(humanPlayer.getName() + " Please place your fist: ");
+            humanPlayer.setFist(new Scanner(System.in).nextInt());
+            int fist1 = humanPlayer.getFist();
+            comPlayer.getFist();
+            int fist2 = comPlayer.getFist();
+
+            int result = judge(fist1, fist2);
+            //return -1, human win; return 0, draw; return 1 computer win
+            if(result == -1){
+                System.out.println("You win! Unbelieveable. ");
+        
+            }else if(result == 0){
+                System.out.println("What a game! Same fist!");
+            }else{
+                System.out.println("You L bozo! Lmao.");
+            }   
+            System.out.print("Would you like another one? (Y/N) ");
+            String reply = new Scanner(System.in).next();
+            if("N".equalsIgnoreCase(reply)){
+                break;
+            }
+
+        }
     }
 
     public void showMenu(){
@@ -65,7 +83,7 @@ public class gameSetting {
         String[] nameArray = {"Mime Terriorist", "Strong Dog", "Nerd Bully", "Docto Genie"};
 
         humanPlayer.setName(nameArray[choice - 1]);
-        comPlayer.setName("Almighty Dater");
+        comPlayer.setName("Master Dater");
         System.out.println(humanPlayer.getName() + " vs. " + comPlayer.getName());
     }
 
@@ -83,6 +101,8 @@ public class gameSetting {
     }
 
     public void endGame(){
+        System.out.println(humanPlayer.getName() + "\t" + comPlayer.getName());
+        System.out.println(humanPlayer.getScore() + "\t\t" + comPlayer.getScore());
         System.out.println("Ends!");
     }
 
@@ -98,24 +118,7 @@ public class gameSetting {
     public void setComPlayer(robot comPlayer) {
         this.comPlayer = comPlayer;
     }
-    public String getRoomName() {
-        return roomName;
-    }
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-    public String getRoomPass() {
-        return roomPass;
-    }
-    public void setRoomPass(String roomPass) {
-        this.roomPass = roomPass;
-    }
-    public long getRoomID() {
-        return roomID;
-    }
-    public void setRoomID(long roomID) {
-        this.roomID = roomID;
-    }
+    
 
 
     
