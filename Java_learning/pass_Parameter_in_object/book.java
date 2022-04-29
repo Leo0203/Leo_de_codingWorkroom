@@ -2,6 +2,9 @@ package Java_learning.pass_Parameter_in_object;
 
 public class book {
 
+
+    //MVC: model view controller
+
     private String name;
     private double price;
     private String isbn;    //code for checking the book
@@ -17,7 +20,7 @@ public class book {
     }
 
 
-    public book(String name, double price, String isbn, int count, boolean isborrow) {
+    public book(String name, String isbn, double price, int count) {
         this.name = name;
         this.price = price;
         this.isbn = isbn;
