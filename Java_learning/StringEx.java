@@ -53,6 +53,9 @@ public class StringEx {
         //return -1 if the character does not exist in the string
         System.out.println(str10.indexOf("ab", 2)); //2 represent start with the third character
 
+        //substring[begining index, ending index)
+        System.out.println(str10.substring(1, 3));
+
 
 
 
