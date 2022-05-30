@@ -16,13 +16,15 @@ public class testMain {
 
 
         //user account create
-        System.out.print("Please enter a name: ");
-        String userName = userIn.nextLine();
+        //System.out.print("Please enter a name: ");
+        //String userName = userIn.nextLine();
 
         System.out.print("Please enter the password: ");
         String password = userIn.nextLine();
-        System.out.print("Please enter your email: ");
-        String email = userIn.nextLine();
+        System.out.println("The strength of the password is: " + StringUtil.ValidatePassword(password));
+
+        //System.out.print("Please enter your email: ");
+        //String email = userIn.nextLine();
 
 
         
