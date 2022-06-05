@@ -1,6 +1,5 @@
 package Java_learning;
 
-import javax.xml.namespace.QName;
 
 public class StringBufferEx {
 
