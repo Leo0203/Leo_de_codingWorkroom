@@ -17,7 +17,7 @@ public class hero extends person_superclass{
     }
 
     public hero(){
-        super();    //automatically call the constructor of the super class
+        //super();    //automatically call the constructor of the super class
     }
 
     public hero(String name, String color, int age, String nationality, String job, String legend){

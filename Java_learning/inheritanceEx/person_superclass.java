@@ -49,13 +49,22 @@ public class person_superclass {
 
 
     public person_superclass() {
-        super();
+        this.name = "a guy";
+        this.color = "transparent";
+        this.age = 19;
+        this.nationality = "earth";
+        this.job = "unemployed";
     }
 
     public void move(){
         System.out.println("The person can WALK.");
     }
     
+    public int compareName(person_superclass person){
+
+        return getName().compareTo(person.getName());
+
+    }
     /**
      * compare which person is older
      * @param person person that is compared with
