@@ -1,26 +1,28 @@
 # include <stdio.h>
+# include <string.h>
 
-Add(int a, int b){
-
-    int z = a + b;
-    return z;
-}
 
 int main(){
 
-    int sum = 0;
+    int try = 0;
+    char password[6] = {0};
+    char setPassword[6] = "123456";
+   
+    for(try = 0; try < 3; try++){
 
-    int a = 10;
-    int b = 20;
+        printf("Please enter the password: ");
+        scanf("%s", password);
 
-    int num1 = 3; 
-    int num2 = 4;
+        for(int i = 0; i < strlen(setPassword); i++){
 
-    sum = Add(a, b);
-    printf("sum of a and b is: %d\n", sum);
+            printf("%c", password[i]);
+        }
+    }
 
-    sum = Add(num1, num2);
-    printf("sum of a and b is: %d\n", sum);
-    
+    if(try == 3){
+
+        printf("Login Falled. \n");
+    }
     return 0;
 }
+

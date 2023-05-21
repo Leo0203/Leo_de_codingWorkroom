@@ -17,7 +17,7 @@
 3. to run your code
 
 ```
-    cd "/Users/mashilin/Documents/GitHub/Hello/C_language_learning/Bzhan/..."
+    cd "/Users/mashilin/Documents/GitHub/Hello/C_language_learning/Bzhan_PengGe/..."
     gcc filename.c
     ./a.out 
 ```
@@ -246,11 +246,199 @@
 ## Operators
 1. mathmatics: +, -, *, /, %(find the remainder)
 2. shift: <<, >> (shift the binary reprsentation of variables)
-3. bitwise operator: &, |, ^
+3. bitwise operator: &(与), |(或), ^(异或)
 4. assignment operator: =, +=, -=, /=, *=, /=, &=, ^=, |=, >>=, <<=
+5. unary operator: !, -, +, &(get the address), sizeof, ~(reverse the binary representation), --, ++, *(indeirect access operator), (type) (switch the type of varibble)
+6. relational operator: >, <, >=, <=, !=, ==
+7. logic operator: &&, ||
+8. conditional operator: expression 1 ? expression 2 : expression 3
+```c
+
+# include <stdio.h>
+
+int main(){
+
+//shift operator
+    int a = 1;
+    /*
+    an int variable occupy 4 byte -> 32 bit
+    00000000000000000000000000000001
+    */
+
+    int b = a<<2;
+    /*
+    this shift the whole binary number to the left by 2
+    00000000000000000000000000000100
+    thus b is 4, however, a itself is not changed
+    int b = a + 3; this would do the same
+    */
+//bitwise operator
+    int c = a & b;
+    /*
+    a is 011 as binary
+    b is 101 as binary
+    c is 001 and thus is 1
+    */
+    int d = a | b;
+    /*
+    a is 011 as binary
+    b is 101 as binary
+    d is 111 and thus is 7
+    */
+    int e = a ^ b;
+    /*
+    a is 011 as binary
+    b is 101 as binary
+    d is 110 and thus is 6
+    when both are the same, it is 0; when different, it is 1
+    */
+
+//uniary operator
+    int f = 10;
+    int arr[] = {1, 2, 3, 4, 5, 6};
+    printf("%d\n", sizeof(a));      //4
+    printf("%d\n", sizeof(int));    //4
+    printf("%d\n", sizeof(arr));    //find the size of the array in byte -> 24
+    printf("%d\n", sizeof(arr) / sizeof(arr[0]));   //find the number of elements 
+
+    int g = 10; 
+    int h = g++;    //++ placed behind: program first do h = g; then g = g + 1. Thus h = 10
+    int i = ++g;    //++ placed before: program first do g = g + 1; then i = g. Thus i = 11
+    int j = g--;    //-- placed behind: program first do j = g; then g = g - 1. Thus j = 10
+    int k = --g;    //-- placed before: program first do g = g - 1; then k = g. Thus k = 9
+
+    int l = (int)3.33; 
+
+//conditional operator
+    int m = 71;
+    int n = 3;
+    int max = (m>n ? m : n);    //is m bigger than m? if yes then max = m, if not max = n
+
+
+    return 0;
+}
+```
+
+## Keywords
+1. register: a variable that is suggested to be saved in temporary torage (fastest storage that the cpu can access)
+2. signed: a vairable that can be negative and positive
+3. unsigned: a vairable that can only be positive
+4. struct: structure
+5. typedef: to give another name for a particular type of varible
+6. auto: auto varibles, all local variables are auto variables. Thus you can write 
+```c
+    auto int a = 10;
+```
+    to define a variable, but auto is usually abbreviated
+7. static: to make an variable static, making a local variable has longer life cycle; or changing the scope of a global variable, only the file the global variable is defined, not useable outside of the orginal file. Static can also be added in front of a method to change the link attribute: cannot be linked outside the file it isd defined and can only be called within the file
+```c
+    # include <stdio.h>
+
+    void test(){
+
+        static a = 1;       //a static variable, a saves the result of previous calculation, if no static, this would print  five 2
+                            //the life cycle of a goes outside of the test method
+        a++;
+        printf("%d\n", a);  //2 3 4 5 6
+
+    }
+    int main(){
+
+        int i = 0;
+        while(i < 5){
+            test();
+            i++;
+        }
+        return 0;
+    }
+```
+## use #define to define constant and macros
+1. macro: a constant with a parameter
+```c
+    # include <stdio.h>
+
+    #define maX 100;    //a constant max equals to 100 defined by "#define"
+
+    //macro
+    #define MAX(X, Y) (X>Y?X:Y)  //the expression MAX(X, Y) would eventually turns to (X>Y?X:Y)
+
+    //method
+    int Max(int x, int y){
+
+        if(x > y){
+            return x;
+        }else{
+            return y;
+        }
+    }
+
+    int main(){
+
+        int a = 10;
+        int b = 20;
+
+        //method
+        int max = Max(a, b);
+        print("max = %d\n", max);   //20
+
+        //macro
+        max = MAX(a, b);
+        printf("max = %d\n", max);  //20
+        
+        return 0;
+    }
+```
+## Pointer
+1. memory: 64 bit -> 64 cords link to the memory, each can be +(1) or -(0). Thus there are a series of 0 and 1 in total 64 off them. There are 2^64 different numbers that rerpresent each unit of memory that is called address. Each unit of memory is one byte
+```c
+    # include <stdio.h>
+
+    int main(){
+
+        int a = 10;     //4 byte is used in the memeory
+        int* p = &a;        //get the address of a, int* is used to save the address
+                            //the pointer type must be the same as original variable
+                            //pointer in 64 bit would have 8 byte in memory, regardless of the different types of cariable
+        printf("%p\n", &a); //0x7ff7b4319498 shown the address in base 16
+
+        *p = 20;             //to manipulate what is saved in p, * get what is saved in p
+                             //the address need memmory to save as well (64 bit -> 8 byte)
+        
+        printf("%lf\n", a);
+        printf("%lf\n", *p);    //both would print 20. 
+                             
+        return 0;
+    }
+```
+## Struct
+1. a new type of "varibale" that is defined to contain a set of variables
+```c
+# include <stdio.h>
+# include <string.h>
+
+    struct Book{
+
+        char name[20];
+        double price;
+    };//this defines a type
+
+    int main()
+    {
+        struct Book b1 = {"The Great Gasby", 16.99};    //this create a new instance of the book structure
+
+        printf("book name: %s\n", b1.name);
+        printf("book price: %f\n", b1.price);
+        return 0;
+
+        //the content of the variables inside a structure cannot be changed directly
+        strcpy(b1.name, "Hamlet");
+        printf("new book name: %s\n", b1.name);
+    }
+``` 
+
 
 ## If statement
-1.carry out the code inside the block if the condition is met
+1. carry out the code inside the block if the condition is met
 ```c
     # include <stdio.h>
 
@@ -325,4 +513,4 @@
         return 0;
     }
 ```
-2. The above showned add method is a customized method, c language also has its own method
+2. The above showned add method is a customized method, c language also has its own methods
