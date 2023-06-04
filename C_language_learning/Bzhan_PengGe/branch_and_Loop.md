@@ -299,6 +299,48 @@ int main() {
     statement -> break; exit
     statement -> continue; skip the rest of the statment -> judge
 
+## Goto Statement
+1. goto statement will redirect the program to a symbol elsewhere in the program and start running the code behind the symbol 
+```c
+# include <stdio.h>
+
+int main(){
+
+again:
+    printf("Hello!\n");
+    goto again;
+    //this will print hello infintely, just like a infinite loop
+    return 0;
+}
+```
+2. goto should not be used extensively since it is volatile. goto can be used when the judgement is too hard to make or the code is too complicated 
+3. a fun goto program: 
+```c
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+
+int main(){
+
+    char input[10] = {0};
+    system("shutdown -s -t 60");
+
+again:
+
+    printf("Computer shutting down in 1 minutes. Type in \"I am a giant market failure!\" to cancel the program. \n input: ");
+    scanf("%s", input);
+    if(0 == strcmp(input, "I am a giant market failure!")){
+
+        system("shutdown -a");
+    }else{
+
+        goto again;
+    }
+
+    return 0;
+}
+
+```
 ## Practice
 1. calculate the n! (1 * 2 * 3 * 4 * 5 * ... * n)
 ```c
@@ -523,3 +565,148 @@ int main(){
 
 ```
 
+6. find the GCD of two number (Euclidean algorithm)
+```c
+# include <stdio.h>
+
+int main(){
+
+    int m = 235;
+    int n = 18;
+    int r = 0;
+
+    while(m%n){
+
+        r = m%n;
+        m = n; 
+        n = r;
+    }
+
+    printf("%d\n", n);
+
+    return 0;
+}
+```
+
+7. find the prime number between 100 to 200
+```c
+# include <stdio.h>
+# include <math.h>
+
+int main(){
+
+    int i = 0;
+    int j = 0;
+    int count = 0;
+
+    for(i = 101; i <= 200; i+= 2){  //even number cannot be prime number
+
+        for(j = 2; j < sqrt(i); j++){   //for any non prime number n = a / b, either a or b would be less than √n. So we do not need to search all the numbers
+
+            if(i % j == 0){
+
+                break;
+            }
+        }
+
+        if(j > sqrt(i)){
+
+            count++;
+            printf("%d ", i);
+        }
+    }
+    printf("\ncount = %d\n", count);
+
+
+    return 0;
+}
+
+```
+
+8. print a 9*9 pitchy formula
+```c
+# include <stdio.h>
+# include <math.h>
+
+int main(){
+
+    int i = 0;
+    int j = 0;
+    int result = 0;
+
+
+    for(i = 1; i < 10; i++){
+
+        for(j = 1; j <= i; j++){
+
+            result = i * j;
+            printf("%d * %d = %-2d", i , j , result);   //%-2d print two digit, if not enough digit put them on the left and fill gaps using spaces
+        }
+        printf("\n");
+    }
+
+
+    return 0;
+}
+```
+
+9. Code a number guess game
+```c
+# include <stdio.h>
+# include <time.h>
+# include <stdlib.h>
+
+int main(){
+
+    int choice = 0;
+    int guess = 0;
+    int random = 0;
+    srand((unsigned int)time(NULL));    //use time log to set the seed for the random number, time represent the seconds passed since jan 1st, 1970 at 0:00. This way the seed is different every time program run
+
+    do{
+
+        printf("choose 1 for play, choose 0 to exit: ");
+        scanf("%d", & choice); 
+
+        switch (choice)
+        {
+        case 1:
+
+            random = rand() % 100 + 1;  //rand itself would generate sudo random number. When generate again the list is the same
+            while(1){
+                
+                printf("Please enter a guess between 1 to 100: ");
+                scanf("%d", & guess);
+                if(guess == random){
+
+                    printf("You find the number. \n");
+                    break;
+                }else if(guess < random){
+
+                    printf("The guess is too small. \n");
+                }else if(guess > random){
+
+                    printf("The guess is too large. \n");
+                }
+
+            }
+            
+            break;
+        
+        case 0:
+            printf("Game ended\n");
+            break;
+
+            
+        default:
+            printf("invalid choice\n");
+            break;
+        }
+
+    }while(choice);
+
+    return 0;
+}
+
+
+```

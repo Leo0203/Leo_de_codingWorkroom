@@ -1,28 +1,23 @@
 # include <stdio.h>
 # include <string.h>
-
+# include <stdlib.h>
 
 int main(){
 
-    int try = 0;
-    char password[6] = {0};
-    char setPassword[6] = "123456";
-   
-    for(try = 0; try < 3; try++){
+    char input[10] = {0};
+    system("shutdown -s -t 60");
 
-        printf("Please enter the password: ");
-        scanf("%s", password);
+again:
 
-        for(int i = 0; i < strlen(setPassword); i++){
+    printf("Computer shutting down in 1 minutes. Type in \"I am a giant market failure!\" to cancel the program. \n input: ");
+    scanf("%s", input);
+    if(0 == strcmp(input, 'I am a giant market failure!')){
 
-            printf("%c", password[i]);
-        }
+        system("shutdown -a");
+    }else{
+
+        goto again;
     }
 
-    if(try == 3){
-
-        printf("Login Falled. \n");
-    }
     return 0;
 }
-
