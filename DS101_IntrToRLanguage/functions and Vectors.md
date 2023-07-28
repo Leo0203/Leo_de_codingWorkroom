@@ -136,7 +136,7 @@ unique(v)           #this will output (2, -50, 4)
 max(v)              #this will output 4
 min(v)              #this will output -50
 ```
-- the max function can also be recreated as follows
+    - the max function can also be recreated as follows
 ```R  
     myMax <- function(x){
 
