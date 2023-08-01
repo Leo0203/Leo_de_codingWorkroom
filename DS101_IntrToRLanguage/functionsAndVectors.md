@@ -9,12 +9,13 @@ f <- function(x){   #define the function
     x**2 + 1 #body of a function
 }
 ```
-e.g quadratic equation
+e.g quadratic equation 
 ```R
 sq.roots <- function(a, b, c){
 
-    disc <- b**2 - 2*a*c
+    disc <- b**2 - 2*a*c    #notice disc cannot be access outside of the function because disc is defined from a, b, c that is subject to change 
     if(disc > 0){
+        
 
         r1 <- (-b-sqrt(disc))/(2*a)
         r2 <- (-b+sqrt(disc))/(2*a)
@@ -90,11 +91,34 @@ sq.roots <- function(1, 2, 1){
 -1
 ```
 
-## Delayed Evaluation (verybasic understanding)
-1. eager evaluation: compute whatever you can as fast as you can
-2. delayed evaluation: compute whatever you can when you needed the value to avoid finding unnecessary values
+## Delayed Evaluation (very basic understanding)
+1. eager evaluation: aka. call-by-value. A technique where an expression is evaluated as sson as it is bound to a variable or passed as an argument. The computation isperformed upfront and stored in memeory. 
+2. delayed evaluation: compute whatever you can when you needed the value to avoid finding unnecessary values. This indicate that the computation is deferred until the last possible moment, and the result is cached for future use. 
+e.g
+```R
+f <- function(x){
 
-## Cat
+    cat("f")
+    x+1
+}
+
+g <- function(x){
+
+    cat("g")
+    x*2
+}
+
+if(f(3)>4){
+
+    g(5)
+}else{
+
+    g(6)
+}
+```
+In a delayed language, the function is not evaluated untill compared to 4, and g(5), g(6) is not evaluated until if condition is resolved. In eager language, f(3) is evaluated as soon as encountered, g(5) and g(6) are evaluated before the if condition is checked.
+
+## Computing Values vs. Printing to the Screen
 1. cat() will print the content inside of the brackets
 2. cat stands for concatinate
 ```R
@@ -105,7 +129,7 @@ emoState <- function(x){
     }else if(x >= 60){
         "Sane"
     }else{
-        "insane"
+        "Insane"
     }
 
     emoState(98) #this will not output anything because this is euquivalent to typing "Good" in the console
@@ -143,10 +167,16 @@ the max function can also be recreated as follows
         sort(v)[length(v)]
     }   
 ```
+4. Merge vectors
+```R
+v <- (5, 3)
+v <- (1, v) #notice this create a new vector (1, 5, 3) and substitute back to the original v
+```
 ## Logical Operators and Application in Vectors
 1. &, |, !are logical operators
     - &: TRUE & TRUE == TRUE; TRUE & FALSE == FALSE; FALSE & FALSE == FLASE
-    - |: TRUE & TRUE == TRUE; TRUE & FALSE == TRUE; FALSE & FALSE == FLASE
+    - |: TRUE | TRUE == TRUE; TRUE | FALSE == TRUE; FALSE | FALSE == FLASE
+        - the "or" here is an "inclusive or", meaning when both conditions are true, the expression is true. This is not the case in daily english, which is "exclusive or", or "xor" which is "!=" 
     - !: !TRUE == FALSE
 2. using logical operators in vectors
 ```R
