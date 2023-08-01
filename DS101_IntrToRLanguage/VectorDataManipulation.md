@@ -80,4 +80,3 @@ my_median <- function(vec){
 
 my_median(a)
 ```
-# Tables (aka. Data Frames, Tibbles)
