@@ -25,12 +25,12 @@ babynames[2, "names"]
 babynames[1:3, ]
 babynames[1:3, c("names", "year")]
 ```
-    - this view the second row of the data frame. Sometimes the rows or columns have names, and thus the name is used instead of the number of rows or columns. Notice this method will return another data frame
+    - this view the second row of the data frame. Sometimes the rows or columns have names, and thus the name is used instead of the number of rows or columns. Notice this method will return another data frame. One can also input a vector to extract several rows 
 ```R
 
 babynames$prop
 ```
-    - this present the data in prop in a single vector
+    - this present the data in prop in a single vector rather than a data frame.
 
 5. practice: 
     - what is the most popular name in 1999
@@ -84,7 +84,7 @@ f(g(5)) #[1] 49
 library(tidyverse)
 5 %>% g() %>% f()   # this is the same as f(g(5)): start with 5 -> transform with g to get g(5) -> transform with f to get f(g(5))
 ```
-
+    - %>% is called pipe. Pipe can pass the preceding value into the function behind the pipe
 ### Wrangling Data Frames
 2. filter: produce a dataframe from the specified columns
 ```R
@@ -103,6 +103,8 @@ babynames %>% select(year, name) # create a dataframe like babynames, but with j
 4. summarize: compute some function of a column
 ```R
 babynames %>% summarize(pername = mean(n))  # create a new data frame that contains the mean of n
+
+mean(babynames$n)   # this will output the same result
 ```
     - want the average count for sex == "M" and for sex == "F"
 ```R
