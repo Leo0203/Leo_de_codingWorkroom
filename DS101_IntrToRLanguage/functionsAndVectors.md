@@ -137,6 +137,101 @@ emoState <- function(x){
 }
 ```
 
+## Function Design Receipe
+1. Write the function header
+    Name, inputs
+2. Write down the type of the input and the output
+    Number? character? Data frame?
+3. Write down what the function does in English
+4. Write down sample inputs and outputs
+5. WRITE THE FUNCTION
+6. Test the function
+7. Practice
+    - write a function that computes the second smallest element of a vector
+```R
+
+secondSmallest <- function(vec){
+
+    sort(vec)[2]
+}
+```
+    - write a function that computes the second largest element of a vector
+```R
+
+secondLargest <- function(vec){
+
+    sort(vec)[length(v) - 1]
+}
+```
+    - Write a function that takes in a data frame with a column “temperature (Celsius)” and a column “city”, and computes a new data frame with a new column “temperature (Fahrenheit)
+```R
+
+CelsiusToFahrenheit <- function(cityTemp){
+
+    cityTemp %>% mutate(Ftemp = Ctemp * (9/5) + 32)
+}
+```
+    - Write a function that takes in a data frame as in the previous problem and computes the second-smallest temperature in the data frame
+```R
+
+secondSmallest <- function(vec){
+
+    sort(vec)[2]
+}
+secondLowestTemp <- function(cityTemp){
+
+    secondSmallest(Ctemps$Celsius)
+}
+
+# or
+
+secondLowestTemp2 <- function(cityTemp){
+
+    (Ctemps %>% arrange(Celsius))[2, "Celsius"]
+}
+
+```
+    - Write a function that takes in a data frame as in the previous problem and computes the average temperature for each city
+```R
+
+avgTemp <- function(cityTemp){
+
+    Ctemps %>% group_by(city) %>% summarise(mean_temp = mean(Celsius))
+}
+```
+    - Write a function tha takes in a data frame as in the previous problem and computes the city where the coldest day was recorded
+```R
+
+coldestDay <- function(cityTemp){
+
+    (cityTemp %>% arrange(Celsius))[1, "city"]
+}
+```
+    - Make a new data frame which contains the increase in life expectancy per year for each country in gapminder. The increase per year is the difference between the life expectancy in the last year and the first year, divided by the number of years.
+```R
+
+lifeExpLatestYear <- function(gapminder){
+
+    (gapminder %>% arrange(-year))[1, "lifeExp"]
+}
+
+firstEle <- function(col){
+
+    col[1]
+}
+
+LastEle <- function(col){
+
+    col[length(col)]
+}
+
+gapminder %>% group_by(country) %>% arrange(-year) %>% smmarise(latestLifeExp = firstEle(lifeExp), 
+                                                                earliestLifeExp = lastEle(lifeExp),
+                                                                earliestYear = min(year), 
+                                                                latestYear = max(year))             %>% mutate((latestLifeExp - earistLifeExp) / (latestYear - earliestYear))
+```
+
+
 # Vectors
 
 ## Introduction

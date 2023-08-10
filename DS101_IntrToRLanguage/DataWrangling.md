@@ -40,7 +40,7 @@ babynames %>% ddinstinct(name, sex) # select distinct names for different sex
 
 gapminder %>% group_by(country) %>% summarise(max_lifeExp = max(lifeExp))
 ```
-8. What is the increase in life expectancy for eachof the countries? 
+8. What is the increase in life expectancy for each of the countries? 
 ```R
 
 increase <- function(x){
