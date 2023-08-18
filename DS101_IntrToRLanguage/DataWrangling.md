@@ -22,7 +22,6 @@ gapminder %>% mutate(gdp = gdpPercap * pop)
 4. summarise: create a new data frame that contains certain characters from the original data frame. In the parameter the name of the columns is specified
 
 5. filter: find a specific row and its containing data
-    - 
 ```R
 
 gapminder %>% group_by(year) %>% filter(gdpPercap == max(gdpPercap)) %>% arrange(year)  #find the max gdp for each year
