@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mashilin/Documents/Leo_de_codingWorkroom/C_learning/C_work",
+      "program": "/Users/mashilin/Documents/Leo_de_codingWorkroom/C_learning/C_work/build/Debug/outDebug"
+    }
+  ]
+}
